@@ -1,0 +1,85 @@
+TODO:
+
+    + wczytywanie
+    + osobny guzik do rozwijania - klikniecie w nazwe tylko zaznacza
+    + wielozaznaczanie z Shiftem
+    + this.addNewNode = function() - poprawic generowanie unikalnego ID
+    + dodanie sortowania i przenoszenia  https://github.com/mjsarfatti/nestedSortable
+    + zlistowane parametry obiektu na overlayu na projekcie
+    + osobny guzik visible
+    + modyfikator w atrybutach i jego zapisywania
+    + jedno z katalogow jest zrodlem dla modeli "_MODELE_" tam mozna klikac w "active model"
+    + guzik wstaw zaznaczony model jako "model pelny" i to wstawia active model
+    + guzik wstaw zaznaczony model jako "model po nazwie" i to wstawia active model
+    + kopiowanie zaznaczonego
+    + wybór prymitywow
+    + reorganizacja kodu w modelach i scenach
+    + generowanie geometrii na podstawie danych z wezlow
+    + wczytywanie JSONem modeli z blendera
+    + modele z wezlow maja w J3D i w drzewie te same IDki chyba trzeba to poprawic
+    + sprawdzic mozliwosc update po ID zeby nie robic update na cala scene
+    + przeniesc wszytkie wspolne funckcje do viewHelpera
+    + guzik odswiez cale drzewo sceny
+    + dodanie flagi interactive gdzie w trybie ogladania mozna kliknac w obiekt i rolka otwirac i zamykac szafki    
+    
+    + klasa z gotowymi materialami
+    
+    + blaty dokonczyc                                       15min
+    + cokolki                                               15min
+    + fronty na bokach                                      15min
+    + poprawic wyglad uchwytow + material                   15min
+                                                      ----------- subczas
+                                                            60min   koniec 17:17 no ciekawe... :) poczatek 16:17
+   
+    -/+ modyfikatory w stylu generuj duzo obiektow na siatce  60min
+    - model kafelka z tekstura                              15min
+    + kafelki na podlodze                                   30min
+    - kafelki nad blatem                                    15min
+    
+    {"array":{"mask":"1110,1101,1011,0111","x":10,"z":6,"xOff":10,"zOff":30,"xOff2":0,"zOff2":15}} 
+    
+    
+Nowe 25-07-2013:
+    + zmienic typ szafek na gorze
+    - zmienic plytki na zielone
+    - zmienic kolor sciany
+    - zmienic kolor blatu
+    - zrobic dodatkowy blat
+     
+     
+     
+    
+Wycofane
+    - listowanie na starcie aplikacji materialow
+    - guzik wstaw aktywny material do zaznaczonego obiektu
+    - poprawa visible na templateach zeby nie trzebabylo odswiezac
+    - znajdowanie obiektu po kliknieciu - jego path
+
+    
+Modelowanie TODO:
+    + zrobic w blenderze blat z dziurami
+    + zrobic model Zlewu
+    + zrobic model Uchwytów
+    
+    
+    
+    
+Forward: -Z
+Up: Y
+
+Click on forward dropdown list and select Y Forward. It will automatically set the 2nd dropdown list to Z up.
+
+That should give you the right results
+    
+
+dobre filmiki:    
+    http://www.youtube.com/user/AndrewPPrice?feature=watch
+    
+    
+shadows:
+    http://devmaster.net/posts/3002/shader-effects-shadow-mapping
+    
+perlin noise:    
+    http://www.clicktorelease.com/code/perlin/chrome.html
+    
+    

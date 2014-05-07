@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Projektant</title>
+        
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.2.custom.min.css" />
+        
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+        <script src="js/jquery.mjs.nestedSortable.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/j3d.js"></script>
+        
+        <!-- include ProjektantGL classes -->
+        <script src="js/ProjektantGL/PglClasses/PglAjax.js"></script>
+        <script src="js/ProjektantGL/PglClasses/PglCustomModelGenerator.js"></script>
+        <script src="js/ProjektantGL/PglClasses/PglJSEvents.js"></script>
+        <script src="js/ProjektantGL/PglClasses/PglPerformance.js"></script>
+        <script src="js/ProjektantGL/PglClasses/PglTool.js"></script>
+        <script src="js/ProjektantGL/PglControllers/PglJ3DController.js"></script>
+        <script src="js/ProjektantGL/PglControllers/PglModelController.js"></script>
+        <script src="js/ProjektantGL/PglControllers/PglSceneTabController.js"></script>
+        <script src="js/ProjektantGL/PglControllers/PglWindowController.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglBuilderModelModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglJ3DModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglJsonModelModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglMaterialGeneratorModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglMaterialModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglModelGeneratorModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglSceneModel.js"></script>
+        <script src="js/ProjektantGL/PglModels/PglWindowModel.js"></script>
+        <script src="js/ProjektantGL/PglViews/helpers/PglViewHelpers.js"></script>
+        <script src="js/ProjektantGL/PglViews/PglJ3DView.js"></script>
+        <script src="js/ProjektantGL/PglViews/PglModelView.js"></script>
+        <script src="js/ProjektantGL/PglViews/PglSceneTabView.js"></script>
+        <script src="js/ProjektantGL/PglViews/PglWindowView.js"></script>
+        <script src="js/ProjektantGL/PglClasses.js"></script>
+        <script src="js/ProjektantGL/PglControllers.js"></script>
+        <script src="js/ProjektantGL/PglModels.js"></script>
+        <script src="js/ProjektantGL/PglViews.js"></script>
+        <script src="js/ProjektantGL/Pgl.js"></script>
+        <!-- include ProjektantGL classes END -->
+       
+        <script>
+            var pgl;
+            
+            $(window).load(function() {
+                pgl = new Pgl();
+                
+                pgl.init();
+            });
+        </script>
+               
+        <!--[if lte IE 8]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>             
+        <![endif]-->
+    </head>
+    <body>
+        
+        <div id="pgl-container" class="fluid-position">
+            <div id="pgl-tools" class="fluid-position">
+                <div class="pgl-tools-padd">
+                    
+                    <div style="font-size: 11px; line-height: 12px;">
+                        <a id="pgl-button-save-project" href="javascript:void(0)">zapisz projekt</a><br/>
+                        <a id="pgl-button-load-project" href="javascript:void(0)">wczytaj projekt</a><br/>
+                        <br/>
+                        <a id="pgl-button-refresh" href="javascript:void(0)">odśwież całą scene</a><br/>
+                        <a id="pgl-button-deselect" href="javascript:void(0)">odznacz</a><br/>
+                        <a id="pgl-button-delete-selected-node" href="javascript:void(0)">usuń zazaczony</a><br/>
+                        <a id="pgl-button-add-new-node" href="javascript:void(0)">dodaj nowy</a><br/>
+                        <a id="pgl-button-copy-active" href="javascript:void(0)">kopiuj zaznaczony</a><br/>
+                        <br/>
+                        <a id="pgl-button-add-current-builder-model-alias" href="javascript:void(0)">wstaw do zaznaczonego referencje do AM</a><br/>
+                        <a id="pgl-button-add-current-builder-model-full" href="javascript:void(0)">wstaw do zaznaczonego pełny AM</a><br/>
+                        <a id="pgl-button-add-primitive-box" href="javascript:void(0)">wstaw box</a><br/>
+                        <a id="pgl-button-add-primitive-sphere" href="javascript:void(0)">wstaw kulę</a><br/>
+                        <a id="pgl-button-add-primitive-plane" href="javascript:void(0)">wstaw plaszczyznę</a><br/>
+                        <br/>
+                        <input id="pgl-input-change-selected-node-name" type="text" name="t-name" value="" /><a id="pgl-button-change-selected-node-name" href="javascript:void(0)">Zapisz nazwę</a><br/>
+                        <br/>
+                        <a id="pgl-button-add-current-material" href="javascript:void(0)">wstaw aktywny materiał TODO</a><br/>
+                    </div>
+                    
+                    <div id="pgl-material-list">
+                        TODO
+                    </div>
+                    
+                    <div id="pgl-scene-list">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+
+                    <div id="pgl-scene-list-element-template">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)" class="t-openclose">&nbsp;</a>
+                                <a href="javascript:void(0)" class="t-name"><span>_nazwij_mnie_</span></a>
+                                <a href="javascript:void(0)" class="t-visible active">&nbsp;</a>
+                                <a href="javascript:void(0)" class="t-builder">&nbsp;</a>
+                                <span class="ta-ul">
+                                    <span class="ta-li">
+                                        <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                        <a href="javascript:void(0)" class="ta-name" type="attr"><span>atrybuty</span></a>
+                                        <span class="ta-ul">
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-dim"><span>rozmiar</span></a>
+                                                <span class="ta-ul dimension">
+                                                    <span class="ta-li-field">
+                                                        X: <input type="number" name="x" value="1.0" />
+                                                    </span>
+                                                    <span class="ta-li-field">                                                            
+                                                        Y: <input type="number" name="y" value="1.0" />
+                                                    </span>
+                                                    <span class="ta-li-field">
+                                                        Z: <input type="number" name="z" value="1.0" />
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-pos"><span>pozycja</span></a>
+                                                <span class="ta-ul position">
+                                                    <span class="ta-li-field">
+                                                        X: <input type="number" name="x" value="0.0" />
+                                                    </span>
+                                                    <span class="ta-li-field">                                                            
+                                                        Y: <input type="number" name="y" value="0.0" />
+                                                    </span>
+                                                    <span class="ta-li-field">
+                                                        Z: <input type="number" name="z" value="0.0" />
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-rot"><span>rotacja</span></a>
+                                                <span class="ta-ul rotation">
+                                                      <span class="ta-li-field">
+                                                          X: <input type="number" name="x" value="0.0" />
+                                                      </span>
+                                                      <span class="ta-li-field">                                                            
+                                                          Y: <input type="number" name="y" value="0.0" />
+                                                      </span>
+                                                      <span class="ta-li-field">
+                                                          Z: <input type="number" name="z" value="0.0" />
+                                                      </span>
+                                                  </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-sca"><span>skala</span></a>
+                                                <span class="ta-ul scale">
+                                                      <span class="ta-li-field">
+                                                          X: <input type="number" name="x" value="1.0" />
+                                                      </span>
+                                                      <span class="ta-li-field">                                                            
+                                                          Y: <input type="number" name="y" value="1.0" />
+                                                      </span>
+                                                      <span class="ta-li-field">
+                                                          Z: <input type="number" name="z" value="1.0" />
+                                                      </span>
+                                                  </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-mod"><span>model</span></a>
+                                                <span class="ta-ul model">
+                                                    <span class="ta-li-field">
+                                                        typ: <input type="text" name="value" value="" />
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-mat"><span>materiał</span></a>
+                                                <span class="ta-ul material">
+                                                    <span class="ta-li-field">
+                                                        typ: <input type="text" name="value" value="Normal2Color" />
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="ta-li">
+                                                <a href="javascript:void(0)" class="ta-openclose">&nbsp;</a>
+                                                <a href="javascript:void(0)" class="ta-name" type="attr-modif"><span>modyfikator</span></a>
+                                                <span class="ta-ul modifier">
+                                                    <span class="ta-li-field">
+                                                        <textarea name="value"></textarea>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                                <ul>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="pgl-canvas-cont" class="fluid-position">
+                <canvas id="pgl-canvas" width="10" height="10" class="fluid-position"></canvas>
+            </div>
+            <div id="pgl-obiect-info-box" class="fluid-position inactive">
+                <div class="row name">
+                    <label>nazwa</label><span class="v"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row dimension">
+                    <label>rozmiar</label><span class="x"></span><span class="y"></span><span class="z"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row position">
+                    <label>pozycja</label><span class="x"></span><span class="y"></span><span class="z"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row rotation">
+                    <label>obrót</label><span class="x"></span><span class="y"></span><span class="z"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row scale">
+                    <label>skala</label><span class="x"></span><span class="y"></span><span class="z"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row model">
+                    <label>model</label><span class="v"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+                <div class="row material">
+                    <label>materiał</label><span class="v"></span>
+                    <span class="clear">&nbsp;</span>
+                </div>
+            </div>
+            <div id="pgl-canvas-top-overlay-cont" class="fluid-position">
+                <span id="pgl-ajax-in-progress" class="pgl-label-canvas-overlay fleft">AJAX...</span>
+                <span id="pgl-label-mouse-mode" class="pgl-label-canvas-overlay fleft">[0] rozglądanie</span>
+                <span id="pgl-label-mouse-mode-axis" class="pgl-label-canvas-overlay fleft">[0] oś X</span>
+                <span id="pgl-label-current-builder" class="pgl-label-canvas-overlay fleft">Aktywny model: <b>?</b></span>
+                <a id="pgl-button-fullscreen-toggle" class="pgl-button-fullscreen-toggle fleft" href="javascript:void(0)">Pełny ekran wł/wył</a>
+            </div>
+        </div>
+
+        
+
+    </body>
+</html>

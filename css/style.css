@@ -1,0 +1,109 @@
+/**
+ *    Main settings (layout etc.)
+ */
+
+
+body {
+    background-repeat: repeat;
+    background-position: left top;
+    background-color: #ffffff;
+    font-family: Arial, Tahoma, Verdana, serif, sans-serif;
+    font-size: 13px; color: #556770;
+    line-height: 22px; margin: 0; padding: 0; text-align: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+a { text-decoration: none; font-weight: normal; color: #2e9eff; cursor: pointer; }
+a:hover { text-decoration: none; }
+h1, h2, h3, h4, h5 { line-height: normal; margin: 0; padding: 0; font-weight: bold; display: block; }
+
+/* reset */
+div, a, textarea, el, p, span, tr, td, table, img, input, form, ul, li { border: 0; margin: 0; padding: 0; outline-style: none; outline-width: 0; outline: none; }
+table { border-collapse: collapse; border-spacing: 0 }
+
+.clear { float: none  !important; clear: both !important; height: 0px !important; width: 0px !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important; font-size: 1px !important; display: block !important; }
+.fright { float: right; }
+.fleft { float: left; }
+.highlight { background-color: #ffff85; }
+
+
+
+
+/**
+ * Projektant GL
+ */
+ 
+.fluid-position { width: 20px; height: 10px; overflow: hidden; position: absolute; top: 0px; left: 0px; display: block; }
+
+#pgl-container {  }
+#pgl-tools { background-color: gainsboro; overflow-y: scroll; }
+#pgl-canvas-cont {  }
+#pgl-canvas {  }
+#pgl-canvas-top-overlay-cont { }
+#pgl-obiect-info-box { background: url('../images/object-info-box-bg.png') repeat left top; border-radius: 4px; padding: 5px; font-size: 10px; line-height: 12px; color: orange; }
+#pgl-obiect-info-box.inactive { display: none; }
+
+
+
+
+#pgl-obiect-info-box div.row { padding: 0 0 2px 0; }
+#pgl-obiect-info-box div.row label { display: block; width: 60px; float: left; color: #35e500; font-weight: bold; }
+#pgl-obiect-info-box div.row span.x,
+#pgl-obiect-info-box div.row span.y,
+#pgl-obiect-info-box div.row span.z { display: block; width: 50px; float: left; }
+#pgl-obiect-info-box div.row span.v { display: block; width: 150px; float: left; }
+
+
+.pgl-tools-padd { padding: 10px; }
+
+#pgl-scene-list-element-template { display: none; }
+
+#pgl-scene-list { outline: 1px solid #afafaf; font-size: 13px; line-height: 13px; color: black; }
+#pgl-scene-list ul { list-style: none; display: block; }
+#pgl-scene-list ul li { display: block; padding: 0 0 0 16px; background: url('../images/scene-list-closed.png') no-repeat 2px 2px; position: relative; top: 0px; left: 0px; }
+#pgl-scene-list ul li.opened { background-image: url('../images/scene-list-opened.png'); }
+#pgl-scene-list ul li a.t-name { display: block; background: url('../images/scene-list-transform-icon.png') no-repeat 0px 0px; padding: 0 0 5px 20px; min-height: 16px; margin-right: 35px; }
+#pgl-scene-list ul li a.t-name.active { font-weight: bold; }
+#pgl-scene-list ul li a.t-name span { font-size: 13px; line-height: 13px; display: block; color: black; padding: 1px 0 0 0; }
+#pgl-scene-list ul li a.t-openclose { display: block; position: absolute; width: 16px; height: 16px; top: 0px; left: 0px; }
+#pgl-scene-list ul li a.t-visible { display: block; position: absolute; width: 16px; height: 16px; top: 0px; right: 0px; background: url('../images/scene-list-transform-visible.png') no-repeat left top; }
+#pgl-scene-list ul li a.t-visible.active { background-position: left bottom; }
+#pgl-scene-list ul li a.t-builder { display: none; position: absolute; width: 16px; height: 16px; top: 0px; right: 18px; background: url('../images/scene-list-transform-builder.png') no-repeat left top; }
+#pgl-scene-list ul li a.t-builder.active { background-position: left bottom; }
+
+#pgl-scene-list span.ta-ul { display: block; }
+#pgl-scene-list span.ta-ul span.ta-li { display: block; padding: 0 0 0 16px; background: url('../images/scene-list-closed.png') no-repeat 2px 2px; position: relative; top: 0px; left: 0px; }
+#pgl-scene-list span.ta-ul span.ta-li.opened { background-image: url('../images/scene-list-opened.png'); }
+#pgl-scene-list span.ta-ul span.ta-li a.ta-openclose { display: block; position: absolute; width: 16px; height: 16px; top: 0px; left: 0px; }
+#pgl-scene-list span.ta-ul span.ta-li a.ta-name { display: block; background: url('../images/scene-list-transform-attribute-icon.png') no-repeat 0px 0px; padding: 0 0 5px 20px; min-height: 16px; }
+#pgl-scene-list span.ta-ul span.ta-li a.ta-name.active { font-weight: bold; }
+#pgl-scene-list span.ta-ul span.ta-li a.ta-name span { font-size: 13px; line-height: 13px; display: block; color: black; padding: 1px 0 0 0; }
+#pgl-scene-list span.ta-ul span.ta-li-field { display: block; padding: 0 0 0 16px; padding: 0 0 5px 20px; min-height: 16px; }
+#pgl-scene-list span.ta-ul span.ta-li-field textarea { display: block; width: 90%; height: 100px; overflow-x: hidden; overflow-y: auto; font-size: 11px; font-family: Arial; }
+#pgl-scene-list span.ta-ul span.ta-li-field input { display: block; width: 90%; font-size: 11px; }
+
+
+#pgl-scene-list ul li ul { display: none; }
+#pgl-scene-list span.ta-ul { display: none; }
+
+
+#pgl-scene-list ul li.modelTemplatesNode > a.t-name { background-image: url('../images/scene-list-model-templates-icon.png'); }
+#pgl-scene-list ul li.modelTemplatesNode > a.t-name span { color: red; }
+#pgl-scene-list ul li.modelTemplatesNode > span.ta-ul { display: none !important; height: 0px !important; overflow: hidden !important; }
+#pgl-scene-list ul li.modelTemplatesNode > ul > li > a.t-builder { display: block; }
+
+#pgl-ajax-in-progress { display: none; }
+#pgl-ajax-in-progress.active { display: block; }
+
+
+/**
+ * Widgets
+ */
+ 
+.pgl-button-fullscreen-toggle { display: block; height: 16px; background-color: black; color: #dd0; border-radius: 4px; line-height: 16px; font-size: 10px; text-align: center; margin-right: 3px; padding: 0 5px; }
+.pgl-label-canvas-overlay { display: block; width: auto; height: 16px; background-color: black; color: #dd0; border-radius: 4px; line-height: 16px; font-size: 10px; margin-right: 3px; padding: 0 5px; }
+.pgl-label-canvas-overlay b { color: orange; }
+
+#pgl-label-current-builder.inactive { display: none; }
