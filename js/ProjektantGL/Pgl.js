@@ -11,8 +11,8 @@ var PGL_WINDOW_RESIZE_DELAY = 50;
 var PGL_ERROR_MESSAGES = {  
                              };
 
-var PGL_AJAX_URL_SAVE_PROJECT_ACTION = '/saveProjectAction.php';
-var PGL_AJAX_URL_LOAD_PROJECT_ACTION = '/loadProjectAction.php';
+var PGL_AJAX_URL_SAVE_PROJECT_ACTION = 'saveProjectAction.php';
+var PGL_AJAX_URL_LOAD_PROJECT_ACTION = 'loadProjectAction.php';
 
 var PGL_JSON_MODELS_PATH = '_models/';
 
