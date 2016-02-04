@@ -1,10 +1,10 @@
 Designer3D
 ===========
 
-Preview available [here](http://ks393768.kimsufi.com/robu/designer3d/index.html).
+Preview available [here](http://projektantgl.codebuild.pl).
 
 Screens
 ===========
 
-[Screen 01](http://ks393768.kimsufi.com/robu/designer3d/screens/01.jpg)
-[Screen 01](http://ks393768.kimsufi.com/robu/designer3d/screens/02.jpg)
+[Screen 01](http://projektantgl.codebuild.pl/screens/01.jpg)
+[Screen 01](http://projektantgl.codebuild.pl/screens/02.jpg)
