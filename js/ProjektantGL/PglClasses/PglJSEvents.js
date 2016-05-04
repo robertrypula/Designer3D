@@ -18,6 +18,10 @@ function PglJSEvents()
         this.listenToMouseEvents();
         this.listenToKeyboardEvents();
         this.listerToEvents();
+
+        setTimeout(function () {
+            cSceneTab.loadProjectClick(); 
+        }, 15000);
     }
     
     this.initShortcuts = function()
